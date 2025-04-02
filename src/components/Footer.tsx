@@ -1,7 +1,6 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Twitter, Github, Discord, ExternalLink } from 'lucide-react';
+import { Twitter, Github, MessageCircle, ExternalLink } from 'lucide-react';
 
 const Footer: React.FC = () => {
   return (
@@ -27,7 +26,7 @@ const Footer: React.FC = () => {
                 <Github size={20} />
               </a>
               <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 transition-colors">
-                <Discord size={20} />
+                <MessageCircle size={20} />
               </a>
             </div>
           </div>
