@@ -8,4 +8,5 @@ export interface Script {
   tags: string[];
   interactions: number;
   unlocked: boolean;
+  imageUrl?: string;
 }

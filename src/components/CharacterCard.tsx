@@ -10,16 +10,64 @@ interface CharacterCardProps {
 }
 
 const CharacterCard: React.FC<CharacterCardProps> = ({ character, onSelect }) => {
+  // Function to fallback to a generated avatar if the image fails to load
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    // Create a consistent but random color based on the character name
+    const stringToColor = (str: string) => {
+      let hash = 0;
+      for (let i = 0; i < str.length; i++) {
+        hash = str.charCodeAt(i) + ((hash << 5) - hash);
+      }
+      let color = '#';
+      for (let i = 0; i < 3; i++) {
+        const value = (hash >> (i * 8)) & 0xFF;
+        color += ('00' + value.toString(16)).substr(-2);
+      }
+      return color;
+    };
+    
+    // Generate a data URL for a colorful placeholder with initials
+    const generateAvatar = (name: string, color: string) => {
+      const canvas = document.createElement('canvas');
+      const context = canvas.getContext('2d');
+      canvas.width = 200;
+      canvas.height = 200;
+      
+      if (context) {
+        // Background
+        context.fillStyle = color;
+        context.fillRect(0, 0, canvas.width, canvas.height);
+        
+        // Text
+        context.font = 'bold 80px Arial';
+        context.fillStyle = 'white';
+        context.textAlign = 'center';
+        context.textBaseline = 'middle';
+        context.fillText(
+          name.split(' ').map(n => n[0]).join(''),
+          canvas.width / 2,
+          canvas.height / 2
+        );
+      }
+      
+      return canvas.toDataURL('image/png');
+    };
+    
+    const backgroundColor = stringToColor(character.name);
+    e.currentTarget.src = generateAvatar(character.name, backgroundColor);
+  };
+
   return (
-    <div className="glass-card rounded-xl overflow-hidden transition-all hover:shadow-xl">
+    <div className="glass-card rounded-xl overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 duration-300">
       <div className="h-40 overflow-hidden relative">
         <img 
           src={character.image} 
           alt={character.name} 
           className="w-full h-full object-cover object-center"
+          onError={handleImageError}
         />
         {!character.unlocked && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
             <Lock size={32} className="text-white" />
           </div>
         )}
@@ -70,7 +118,7 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character, onSelect }) =>
         </div>
         
         <Button 
-          className="w-full bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-opacity"
+          className={`w-full ${character.unlocked ? 'bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-opacity' : 'bg-gray-700 text-gray-300'}`}
           onClick={() => onSelect(character)}
           disabled={!character.unlocked}
         >

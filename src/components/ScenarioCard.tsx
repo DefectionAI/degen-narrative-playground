@@ -20,16 +20,22 @@ const ScenarioCard: React.FC<ScenarioCardProps> = ({ scenario, onSelect }) => {
     }
   };
 
+  // Function to fallback image if the original is not found
+  const handleImageError = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = `https://images.unsplash.com/photo-${Math.floor(1620000000 + Math.random() * 10000000)}?auto=format&fit=crop&w=500&h=280&q=80`;
+  };
+
   return (
-    <div className="glass-card rounded-xl overflow-hidden transition-all hover:shadow-xl">
+    <div className="glass-card rounded-xl overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 duration-300">
       <div className="h-40 overflow-hidden relative">
         <img 
           src={scenario.image} 
           alt={scenario.title} 
           className="w-full h-full object-cover object-center"
+          onError={handleImageError}
         />
         {!scenario.unlocked && (
-          <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
+          <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
             <Lock size={32} className="text-white" />
           </div>
         )}
@@ -87,7 +93,7 @@ const ScenarioCard: React.FC<ScenarioCardProps> = ({ scenario, onSelect }) => {
         </div>
         
         <Button 
-          className="w-full bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-opacity"
+          className={`w-full ${scenario.unlocked ? 'bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-opacity' : 'bg-gray-700 text-gray-300'}`}
           onClick={() => onSelect(scenario)}
           disabled={!scenario.unlocked}
         >

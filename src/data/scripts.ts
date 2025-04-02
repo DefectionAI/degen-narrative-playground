@@ -4,186 +4,184 @@ import { Script } from "../types/script";
 export const scripts: Script[] = [
   {
     id: "script-001",
-    title: "The Merge Aftermath",
-    date: "2023-09-16",
-    content: `SCENE: A dimly lit server room, the hum of computers fills the air. VITALIK sits cross-legged on the floor surrounded by holographic displays, while CHARLES paces nervously.
+    title: "ETH Integration Milestone",
+    date: new Date().toISOString().split('T')[0], // Today's date
+    content: `SCENE: A modern tech office with multiple screens displaying Ethereum charts. VITALIK sits at a circular table with DEVELOPERS.
 
-VITALIK: (checking monitors) The network looks stable. Proof of Stake is holding.
+VITALIK: (examining code) The layer-2 integration looks solid. Throughput is up 400% in testing.
 
-CHARLES: (skeptically) For now. But you know the Bitcoin maxis are already spinning this as centralization.
+DEVELOPER 1: (nodding) The danksharding implementation is exceeding expectations. But there's something else...
 
-VITALIK: (shrugs) What else is new? They called Ethereum a scam when we launched, they called it a scam during the DAO hack, and they're calling it a scam now.
+VITALIK: (raising eyebrow) Something else?
 
-CHARLES: (pauses, looks directly at VITALIK) But what if they're right this time? What if we've just handed the keys to the largest smart contract platform to the richest players?
+DEVELOPER 2: (excitedly) The institutional flows we're seeing since the ETFs launched. It's unprecedented.
 
-VITALIK: (stands, faces CHARLES) That's not what happened, and you know it. This is about sustainability, scalability... evolution.
+(A notification pings. They look at a screen showing major banks announcing Ethereum custody solutions)
 
-(A notification pings. They both turn to look at a screen showing ETH price dropping rapidly)
+VITALIK: (calmly) Remember when they called us a "science experiment"?
 
-CHARLES: (smirking) Evolution, huh? Looks like the market has a different opinion.
+DEVELOPER 1: (smiling) Well, science just became mainstream.
 
-VITALIK: (calmly) The code worked. That's what matters. Price will follow fundamentals eventually.
+VITALIK: (standing) That was never the goal though, was it? The goal was always to build...
 
-CHARLES: (laughs) Still the idealist. Some things never change.
+ALL TOGETHER: "Unstoppable applications."
 
-(The lights flicker. A new figure materializes in the corner of the room)
+(CAROLYN enters the room unexpectedly)
 
-SATOSHI: (face obscured, voice distorted) Or perhaps some things should never change...
-
-VITALIK & CHARLES: (shocked) Satoshi?!
+CAROLYN: Unstoppable, yes. But can they scale without sacrificing what makes Ethereum... Ethereum?
 
 [END SCENE]`,
-    characters: ["Vitalik Buterin", "Charles Hoskinson", "Satoshi Nakamoto"],
-    tags: ["Ethereum", "The Merge", "Proof of Stake", "Drama"],
-    interactions: 587,
+    characters: ["Vitalik Buterin", "Ethereum Developer 1", "Ethereum Developer 2", "Carolyn (Investor)"],
+    tags: ["Ethereum", "Layer 2", "Scaling", "ETF"],
+    interactions: 243,
     unlocked: true
   },
   {
     id: "script-002",
-    title: "Exchange Exodus",
-    date: "2023-11-12",
-    content: `SCENE: A chaotic trading floor. Red numbers flash across giant screens. Traders are yelling, some frantically typing on phones. SAM stands in the center, tie loosened, hair disheveled.
+    title: "Bitcoin ETF Drama",
+    date: new Date(Date.now() - 86400000).toISOString().split('T')[0], // Yesterday's date
+    content: `SCENE: A Wall Street investment firm. Trading screens flash with Bitcoin price movements. FUND MANAGER stands before a team of ANALYSTS. Market tension is palpable.
 
-SAM: (into phone, panicked) No, no, no! Tell them we have the liquidity. We HAVE it!
+FUND MANAGER: (reviewing dashboard) Six billion in outflows yesterday. But the price is holding.
 
-(CHANGPENG enters, composed but stern)
+ANALYST 1: (concerned) The selling pressure was expected after the unlock period, but the volume is beyond our models.
 
-CHANGPENG: (shaking head) You don't, though. And now everyone knows it.
+FUND MANAGER: (dismissively) Models are just models. Look at the on-chain data. Long-term holders aren't budging.
 
-SAM: (covering phone) What are you doing here? Come to gloat?
+ANALYST 2: (bringing up a chart) There's something else. Look at the derivatives market. Perpetual funding rates are turning positive again.
 
-CHANGPENG: I came to offer a deal. We can still stop this bank run.
+FUND MANAGER: (nodding slowly) The leverage is shifting... the short squeeze could be biblical.
 
-SAM: (bitter laugh) After you practically caused it? Your tweet wasn't an accident.
+(Door opens, CEO enters looking tense)
 
-CHANGPENG: (shrugs) Neither was your balance sheet.
+CEO: (urgently) We need to reverse our position. NOW.
 
-(A REGULATOR bursts through the door, flanked by officials)
+FUND MANAGER: (surprised) What? Based on what?
 
-REGULATOR: Everyone stop! This exchange is now under investigation.
+CEO: (showing phone) Galaxy just announced. They're upgrading their Bitcoin allocation from 5% to 25% of portfolio.
 
-SAM: (face draining of color) You don't understand, we just need 24 hours...
+(Screens suddenly flash green as Bitcoin price jumps)
 
-CHANGPENG: (backing toward exit) I think I'll let you handle this. Offer's officially withdrawn.
+ANALYST 1: (stunned) What just happened?
 
-(SAM's phone pings repeatedly with withdrawal notifications)
-
-REGULATOR: (grimly) Mr. Bankman-Fried, I suggest you call your lawyers.
+FUND MANAGER: (smiling) The game theory just played out. First mover advantage.
 
 [END SCENE]`,
-    characters: ["Sam Bankman-Fried", "Changpeng Zhao", "Regulator"],
-    tags: ["FTX", "Binance", "Exchange Drama", "Collapse"],
-    interactions: 823,
+    characters: ["Fund Manager", "Wall Street Analyst 1", "Wall Street Analyst 2", "Investment Firm CEO"],
+    tags: ["Bitcoin", "ETF", "Institutional", "Market Movement"],
+    interactions: 412,
     unlocked: true
   },
   {
     id: "script-003",
-    title: "Meme Coin Madness",
-    date: "2024-02-03",
-    content: `SCENE: A penthouse apartment with sweeping city views. SHIB DEVELOPER sits surrounded by monitors showing skyrocketing price charts. A DOGE HOLDER bursts through the door.
+    title: "The Regulatory Storm",
+    date: new Date(Date.now() - 86400000 * 2).toISOString().split('T')[0], // 2 days ago
+    content: `SCENE: A congressional hearing room. REGULATORS sit at an elevated panel, while EXCHANGE CEOS face them from a lower table. Tension fills the air.
 
-DOGE HOLDER: (incredulous) How? HOW? We were the original! We had Elon!
+REGULATOR 1: (firmly) Your exchange facilitated $4 billion in transactions without proper KYC protocols. How do you explain this?
 
-SHIB DEVELOPER: (smugly) And we had a better story. Dog eat dog, my friend.
+EXCHANGE CEO 1: (confidently) Those figures are misrepresented. Our compliance team flags and blocks suspicious activity with 99.7% accuracy.
 
-(A notification sound. They both check their phones)
+REGULATOR 2: (skeptically) Yet you operate in jurisdictions with minimal oversight.
 
-DOGE HOLDER: (eyes widening) Are you seeing this? Some hamster coin just pumped 1000%.
+EXCHANGE CEO 2: (interjecting) With respect, we choose jurisdictions with regulatory clarity. The U.S. has provided anything but that.
 
-SHIB DEVELOPER: (dismissively) Flash in the pan. No fundamentals.
+(Murmurs from the audience)
 
-(RETAIL INVESTOR enters, wearing pajamas and looking sleep-deprived)
+REGULATOR 1: (leaning forward) Are you suggesting U.S. regulations are the problem?
 
-RETAIL INVESTOR: (excited) I just mortgaged my house and went all in on HamsterRocket! The Telegram group says it's going to 100x from here!
+EXCHANGE CEO 1: (measured) I'm suggesting that innovation follows clarity. Singapore, Hong Kong, the UAE - they've all provided frameworks that protect consumers while allowing innovation.
 
-SHIB DEVELOPER & DOGE HOLDER: (in unison) Oh no...
+REGULATOR 2: (tersely) Innovation cannot come at the expense of national security.
 
-RETAIL INVESTOR: (checking phone) Wait... why is it dropping? No, no, NO! It was just at an all-time high!
+EXCHANGE CEO 2: (passionately) Nor should security come at the expense of American competitiveness. We're watching a $3 trillion industry build its foundations outside U.S. borders.
 
-(A sleek, minimalist desk in the corner suddenly illuminates, revealing VB sitting quietly)
+(A young AIDE rushes in, whispers to REGULATOR 1)
 
-VITALIK: (sighing) And this is why we can't have nice things.
+REGULATOR 1: (expression changing) We'll take a brief recess.
+
+(As people start to move, EXCHANGE CEOs exchange knowing glances)
+
+EXCHANGE CEO 1: (quietly) They've seen the capital flight data.
+
+EXCHANGE CEO 2: (nodding) Too little, too late?
 
 [END SCENE]`,
-    characters: ["SHIB Developer", "DOGE Holder", "Retail Investor", "Vitalik Buterin"],
-    tags: ["Meme Coins", "DOGE", "SHIB", "Market Mania"],
-    interactions: 1241,
+    characters: ["Regulator 1", "Regulator 2", "Exchange CEO 1", "Exchange CEO 2"],
+    tags: ["Regulation", "Compliance", "Exchanges", "Policy"],
+    interactions: 357,
     unlocked: true
   },
   {
     id: "script-004",
-    title: "Bitcoin Halving Hostage",
-    date: "2024-04-20",
-    content: `SCENE: An underground mining facility. Rows of ASICs hum loudly. MINER #1 and MINER #2 watch as the countdown timer approaches zero.
+    title: "DeFi Revolution Continues",
+    date: new Date(Date.now() - 86400000 * 3).toISOString().split('T')[0], // 3 days ago
+    content: `SCENE: A virtual meeting space represented by futuristic holograms. DEFI FOUNDERS from different protocols interact in the digital environment.
 
-MINER #1: (nervously) Less than an hour now. After this, our rewards get cut in half.
+FOUNDER 1: (displaying metrics) Our TVL is up 47% since the real-yield narrative took hold. Users want sustainable returns.
 
-MINER #2: (confidently) But the price will compensate. It always has.
+FOUNDER 2: (skeptically) But you're still relying on VC exit liquidity. Those tokenomics won't survive a bear market.
 
-MINER #1: Past performance is not indicative of future results, man. This time could be different.
+FOUNDER 3: (interrupting) Speaking of which, has anyone seen the latest regulatory guidance? They're coming for stablecoins next.
 
-(A loud bang as the door flies open. INSTITUTIONAL INVESTOR enters with bodyguards)
+(Digital display shows policy document)
 
-INSTITUTIONAL INVESTOR: (surveying the facility) So this is where the magic happens? Looks... industrial.
+FOUNDER 1: (analyzing) They're differentiating between algorithmic and fully-backed stables. This is actually... not terrible?
 
-MINER #2: (defensively) What did you expect? Unicorns and rainbows? This is serious infrastructure.
+FOUNDER 2: (surprised) Regulatory clarity? In this economy?
 
-INSTITUTIONAL INVESTOR: (checking expensive watch) And soon to be seriously less profitable. Unless...
+FOUNDER 3: (thoughtful) It means they're accepting reality. Stablecoins transfer volume exceeded Visa last quarter. They can't ignore us anymore.
 
-MINER #1: (suspiciously) Unless what?
+(A new participant materializes - INSTITUTION REP)
 
-INSTITUTIONAL INVESTOR: (smiling) Unless you have friends in high places. My fund just acquired a significant position. We have ways to maintain price support through the halving.
+INSTITUTION REP: (professionally) That's precisely why my firm wants to discuss integration opportunities. Our clients are demanding DeFi exposure.
 
-MINER #2: Market manipulation? That's not what Bitcoin is about!
+(The founders look at each other in shock)
 
-INSTITUTIONAL INVESTOR: (laughs) Oh, that's adorable. You still think this is 2013. Bitcoin is big business now. Idealism doesn't pay the electricity bill.
+FOUNDER 2: (suspicious) Your firm was calling us a Ponzi scheme last year.
 
-(Timer beeps, reaches zero. All mining equipment momentarily goes quiet, then restarts)
-
-MINER #1: (looking at screens) It's done. The halving just happened.
-
-INSTITUTIONAL INVESTOR: (checking phone) And right on cue, our trading desk begins. Gentlemen, I suggest you watch the charts. This will be... educational.
+INSTITUTION REP: (smiling) Last year we didn't have a $2 billion client allocation mandate for DeFi. Funny how that works, isn't it?
 
 [END SCENE]`,
-    characters: ["Miner #1", "Miner #2", "Institutional Investor"],
-    tags: ["Bitcoin", "Halving", "Mining", "Institutional"],
-    interactions: 492,
-    unlocked: false
+    characters: ["DeFi Founder 1", "DeFi Founder 2", "DeFi Founder 3", "Institutional Representative"],
+    tags: ["DeFi", "Stablecoins", "Institutional", "Regulation"],
+    interactions: 298,
+    unlocked: true
   },
   {
     id: "script-005",
-    title: "DeFi Detective",
-    date: "2024-05-01",
-    content: `SCENE: A cluttered office filled with computer screens showing code and blockchain explorers. BLOCKCHAIN DETECTIVE types furiously while PROTOCOL DEVELOPER paces.
+    title: "The Meme Coin Phenomenon",
+    date: new Date(Date.now() - 86400000 * 4).toISOString().split('T')[0], // 4 days ago
+    content: `SCENE: A bustling crypto conference. VETERAN TRADER and INFLUENCER are on a panel while RETAIL INVESTORS huddle around, recording with their phones.
 
-DETECTIVE: (pointing at screen) There. The exploit happened at 3:42 AM. Someone found the vulnerability in your code and drained $45 million in seconds.
+MODERATOR: (to panel) In this market cycle, meme coins have outperformed blue chips. How do you explain this?
 
-DEVELOPER: (distressed) But we had three audits! How did they miss this?
+VETERAN TRADER: (sighing) Market inefficiency and gambling psychology. Nothing more.
 
-DETECTIVE: (zooming in on code) They were looking at what the code does. Not what it could do when combined with a flash loan attack from another protocol.
+INFLUENCER: (energetically) Wrong! It's community ownership and participatory culture. People don't just want returns, they want belonging.
 
-(A message appears on screen)
+(RETAIL INVESTORS cheer)
 
-DEVELOPER: (reading) "Return the funds and keep 10% as a bug bounty"? Are they serious?
+VETERAN TRADER: (incredulously) Belonging? You're describing a casino as a social club.
 
-DETECTIVE: (nodding) White hat offer. Better than nothing.
+INFLUENCER: (smiling) The best casinos ARE social clubs. But that's not what's happening. These communities are funding developers, building products...
 
-DEVELOPER: Our users will lynch us either way. The forums are already on fire.
+VETERAN TRADER: (interrupting) On dog-themed tokens? Please.
 
-(Door opens, REGULATOR enters with notepad)
+(A notification rings across multiple phones simultaneously)
 
-REGULATOR: (formally) I have some questions about your "permissionless lending protocol" and how exactly $45 million of consumer funds disappeared overnight.
+RETAIL INVESTOR 1: (excited) PEPE just announced a DAO!
 
-DEVELOPER: (to DETECTIVE, whispering) Do I need a lawyer?
+RETAIL INVESTOR 2: (looking at phone) Market cap just jumped 80%!
 
-DETECTIVE: (whispering back) You need a time machine.
+VETERAN TRADER: (putting head in hands) This is why we can't have nice things.
 
-REGULATOR: (sternly) I can hear you both. And yes, legal counsel would be advisable. Very advisable.
+INFLUENCER: (to Veteran Trader) You keep analyzing the market like it's 2017. New cycle, new rules. The line between memes and movements has never been thinner.
 
 [END SCENE]`,
-    characters: ["Blockchain Detective", "Protocol Developer", "Regulator"],
-    tags: ["DeFi", "Hack", "Security", "Audit"],
-    interactions: 307,
-    unlocked: false
+    characters: ["Veteran Trader", "Crypto Influencer", "Retail Investor 1", "Retail Investor 2", "Moderator"],
+    tags: ["Meme Coins", "Market Psychology", "Community", "Trends"],
+    interactions: 513,
+    unlocked: true
   }
 ];

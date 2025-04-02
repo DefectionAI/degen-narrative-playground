@@ -200,6 +200,7 @@ const RolePlayingPage: React.FC = () => {
           ))}
         </div>
         
+        {/* No Results Message */}
         {((activeTab === 'characters' && filteredCharacters.length === 0) ||
           (activeTab === 'scenarios' && filteredScenarios.length === 0)) && (
           <div className="text-center py-12">
