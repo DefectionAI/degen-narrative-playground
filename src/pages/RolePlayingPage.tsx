@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Search, Filter, Users, HelpCircle, X, Check, ChevronRight, Clock } from 'lucide-react';
@@ -6,6 +5,7 @@ import { characters, scenarios } from '../data/characters';
 import CharacterCard from '../components/CharacterCard';
 import ScenarioCard from '../components/ScenarioCard';
 import { Character, Scenario } from '../types/character';
+import CharacterAvatarImage from '../components/CharacterAvatarImage';
 
 type ActiveTab = 'characters' | 'scenarios';
 type SelectionState = {
@@ -80,10 +80,11 @@ const RolePlayingPage: React.FC = () => {
               <div className="flex items-center space-x-4">
                 {selection.character && (
                   <div className="flex items-center">
-                    <img 
+                    <CharacterAvatarImage 
                       src={selection.character.image} 
-                      alt={selection.character.name}
-                      className="w-10 h-10 rounded-full object-cover mr-2"
+                      name={selection.character.name}
+                      size="sm"
+                      className="mr-2"
                     />
                     <div>
                       <p className="text-sm text-foreground/70">Selected Character</p>
@@ -228,10 +229,11 @@ const RolePlayingPage: React.FC = () => {
               <p className="text-foreground/80 mb-4">You're about to start the following role-playing scenario:</p>
               
               <div className="flex items-center mb-4">
-                <img 
+                <CharacterAvatarImage 
                   src={selection.character.image} 
-                  alt={selection.character.name}
-                  className="w-16 h-16 rounded-full object-cover border-2 border-crypto-blue mr-4"
+                  name={selection.character.name}
+                  size="lg"
+                  className="mr-4"
                 />
                 <div>
                   <h3 className="font-bold text-crypto-blue">{selection.character.name}</h3>

@@ -1,9 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowLeft, MessageCircle, Heart, Share2, Bookmark, Calendar, Eye } from 'lucide-react';
 import { scripts } from '../data/scripts';
+import CharacterAvatarImage from '../components/CharacterAvatarImage';
 
 const ScriptDetailPage: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -148,9 +148,12 @@ const ScriptDetailPage: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {script.characters.map((character, index) => (
               <div key={index} className="glass-card p-4 rounded-lg flex items-center">
-                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-crypto-purple to-crypto-blue flex items-center justify-center text-xl font-bold mr-3">
-                  {character.charAt(0)}
-                </div>
+                <CharacterAvatarImage 
+                  src={`/images/characters/${character.toLowerCase().replace(/\s+/g, '-')}.png`} 
+                  name={character}
+                  size="sm"
+                  className="mr-3"
+                />
                 <div>
                   <h3 className="font-bold">{character}</h3>
                   <p className="text-sm text-foreground/70">Character</p>
@@ -186,9 +189,12 @@ const ScriptDetailPage: React.FC = () => {
             {comments.map((comment) => (
               <div key={comment.id} className="glass-card p-4 rounded-lg">
                 <div className="flex items-start mb-2">
-                  <div className="w-10 h-10 rounded-full bg-gradient-to-r from-crypto-purple to-crypto-blue flex items-center justify-center text-sm font-bold mr-3">
-                    {comment.user.charAt(0)}
-                  </div>
+                  <CharacterAvatarImage 
+                    src={`/images/avatars/default.png`} 
+                    name={comment.user}
+                    size="sm"
+                    className="mr-3"
+                  />
                   <div className="flex-grow">
                     <div className="flex justify-between items-center">
                       <h3 className="font-bold text-crypto-blue">{comment.user}</h3>
