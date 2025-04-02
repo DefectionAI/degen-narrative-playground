@@ -1,60 +1,56 @@
+
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Twitter, Github, MessageCircle, ExternalLink } from 'lucide-react';
+import Logo from './Logo';
 
 const Footer: React.FC = () => {
   return (
-    <footer className="border-t border-white/10 mt-20 py-16 px-4">
+    <footer className="border-t border-white/10 mt-20 py-16 px-4 bg-cyber-dots">
       <div className="container mx-auto">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1">
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="relative h-10 w-10">
-                <div className="absolute inset-0 bg-gradient-to-r from-crypto-purple to-crypto-blue rounded-full"></div>
-                <div className="absolute inset-0 bg-background rounded-full m-0.5 flex items-center justify-center text-xl font-display font-bold">D</div>
-              </div>
-              <span className="text-2xl font-display font-bold gradient-text">Defection</span>
-            </Link>
+            <Logo size="md" withText={true} />
             <p className="mt-4 text-foreground/70">
               The ultimate degen playground where crypto meets interactive storytelling.
             </p>
             <div className="flex items-center space-x-4 mt-6">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 transition-colors">
+              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 hover:text-crypto-blue transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 transition-colors">
+              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 hover:text-crypto-purple transition-colors">
                 <Github size={20} />
               </a>
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 transition-colors">
+              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 hover:text-crypto-pink transition-colors">
                 <MessageCircle size={20} />
               </a>
             </div>
           </div>
           
           <div>
-            <h3 className="font-display text-lg font-bold mb-4">Navigation</h3>
+            <h3 className="font-display text-lg font-bold mb-4 neon-text">Navigation</h3>
             <ul className="space-y-2">
-              <li><Link to="/" className="text-foreground/70 hover:text-foreground transition-colors">Home</Link></li>
-              <li><Link to="/scripts" className="text-foreground/70 hover:text-foreground transition-colors">Daily Scripts</Link></li>
-              <li><Link to="/role-playing" className="text-foreground/70 hover:text-foreground transition-colors">Role Playing</Link></li>
-              <li><Link to="/dashboard" className="text-foreground/70 hover:text-foreground transition-colors">Dashboard</Link></li>
-              <li><Link to="/news" className="text-foreground/70 hover:text-foreground transition-colors">News</Link></li>
-              <li><Link to="/tokenomics" className="text-foreground/70 hover:text-foreground transition-colors">Tokenomics</Link></li>
+              <li><Link to="/" className="text-foreground/70 hover:text-crypto-blue transition-colors">Home</Link></li>
+              <li><Link to="/scripts" className="text-foreground/70 hover:text-crypto-blue transition-colors">Daily Scripts</Link></li>
+              <li><Link to="/role-playing" className="text-foreground/70 hover:text-crypto-blue transition-colors">Role Playing</Link></li>
+              <li><Link to="/dashboard" className="text-foreground/70 hover:text-crypto-blue transition-colors">Dashboard</Link></li>
+              <li><Link to="/news" className="text-foreground/70 hover:text-crypto-blue transition-colors">News</Link></li>
+              <li><Link to="/tokenomics" className="text-foreground/70 hover:text-crypto-blue transition-colors">Tokenomics</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-display text-lg font-bold mb-4">Resources</h3>
+            <h3 className="font-display text-lg font-bold mb-4 neon-purple">Resources</h3>
             <ul className="space-y-2">
-              <li><Link to="/roadmap" className="text-foreground/70 hover:text-foreground transition-colors">Roadmap</Link></li>
-              <li><a href="#" className="text-foreground/70 hover:text-foreground transition-colors flex items-center">Whitepaper <ExternalLink size={14} className="ml-1" /></a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-foreground transition-colors flex items-center">Documentation <ExternalLink size={14} className="ml-1" /></a></li>
-              <li><Link to="/faq" className="text-foreground/70 hover:text-foreground transition-colors">FAQ</Link></li>
+              <li><Link to="/roadmap" className="text-foreground/70 hover:text-crypto-purple transition-colors">Roadmap</Link></li>
+              <li><a href="#" className="text-foreground/70 hover:text-crypto-purple transition-colors flex items-center">Whitepaper <ExternalLink size={14} className="ml-1" /></a></li>
+              <li><a href="#" className="text-foreground/70 hover:text-crypto-purple transition-colors flex items-center">Documentation <ExternalLink size={14} className="ml-1" /></a></li>
+              <li><Link to="/faq" className="text-foreground/70 hover:text-crypto-purple transition-colors">FAQ</Link></li>
             </ul>
           </div>
           
           <div>
-            <h3 className="font-display text-lg font-bold mb-4">Stay Updated</h3>
+            <h3 className="font-display text-lg font-bold mb-4 neon-text">Stay Updated</h3>
             <p className="text-foreground/70 mb-4">Subscribe to our newsletter for the latest updates and degen alpha.</p>
             <form className="flex">
               <input 
