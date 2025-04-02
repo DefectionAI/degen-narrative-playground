@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
-import { Search, Filter, Users, HelpCircle, X, Check, ChevronRight } from 'lucide-react';
+import { Search, Filter, Users, HelpCircle, X, Check, ChevronRight, Clock } from 'lucide-react';
 import { characters, scenarios } from '../data/characters';
 import CharacterCard from '../components/CharacterCard';
 import ScenarioCard from '../components/ScenarioCard';
