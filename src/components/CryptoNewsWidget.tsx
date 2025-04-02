@@ -28,7 +28,7 @@ const CryptoNewsWidget: React.FC = () => {
       id: '2',
       title: 'Ethereum Layer-2 Solutions Break Transaction Volume Records',
       source: 'The Block',
-      summary: 'Arbitrum and Optimism have processed more transactions in October than Ethereum's mainnet for the first time...',
+      summary: 'Arbitrum and Optimism have processed more transactions in October than Ethereum mainnet for the first time...',
       url: 'https://www.theblock.co/',
       imageUrl: '/images/news/layer2.jpg',
       date: new Date().toLocaleDateString()
