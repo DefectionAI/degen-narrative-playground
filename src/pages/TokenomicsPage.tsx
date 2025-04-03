@@ -25,7 +25,7 @@ const TokenomicsPage: React.FC = () => {
         </p>
 
         {/* Large token logo */}
-        <div className="mb-12 flex justify-center items-center">
+        <div className="mb-12 flex justify-center items-center gap-4">
           <div className="w-64 h-64 md:w-80 md:h-80 relative">
             <Logo size="lg" withText={false} />
           </div>
