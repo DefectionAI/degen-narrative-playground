@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import HomePage from './pages/HomePage';
@@ -13,7 +14,6 @@ import Footer from './components/Footer';
 import { Toaster } from "@/components/ui/toaster"
 import RoadmapPage from './pages/RoadmapPage';
 import WhitepaperPage from './pages/WhitepaperPage';
-import DocumentationPage from './pages/DocumentationPage';
 import FAQPage from './pages/FAQPage';
 
 const App = () => {
@@ -31,7 +31,6 @@ const App = () => {
           <Route path="/tokenomics" element={<TokenomicsPage />} />
           <Route path="/roadmap" element={<RoadmapPage />} />
           <Route path="/whitepaper" element={<WhitepaperPage />} />
-          <Route path="/documentation" element={<DocumentationPage />} />
           <Route path="/faq" element={<FAQPage />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

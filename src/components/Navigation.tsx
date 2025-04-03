@@ -138,13 +138,6 @@ const Navigation: React.FC = () => {
                 <span>Whitepaper</span>
               </Link>
               <Link 
-                to="/documentation"
-                className="flex items-center space-x-3 px-4 py-3 rounded-md text-foreground/80 hover:bg-white/5"
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                <span>Documentation</span>
-              </Link>
-              <Link 
                 to="/faq"
                 className="flex items-center space-x-3 px-4 py-3 rounded-md text-foreground/80 hover:bg-white/5"
                 onClick={() => setMobileMenuOpen(false)}
