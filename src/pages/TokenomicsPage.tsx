@@ -1,9 +1,21 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
 import { CircleDollarSign } from 'lucide-react';
+import Logo from '@/components/Logo';
+import { Card, CardContent } from '@/components/ui/card';
 
 const TokenomicsPage: React.FC = () => {
+  // Initialize the progress bar animation when component mounts
+  useEffect(() => {
+    const progressBar = document.getElementById('unlock-progress');
+    if (progressBar) {
+      setTimeout(() => {
+        progressBar.style.width = '0%';
+      }, 100);
+    }
+  }, []);
+
   return (
     <div className="min-h-screen pt-32 px-4">
       <div className="container mx-auto text-center">
@@ -11,20 +23,32 @@ const TokenomicsPage: React.FC = () => {
         <p className="text-xl text-foreground/80 max-w-3xl mx-auto mb-12">
           Fair Distribution for the People. Our approach ensures everyone has a fair opportunity to participate in the Defection ecosystem.
         </p>
+
+        {/* Large token logo */}
+        <div className="mb-12 flex justify-center">
+          <div className="w-48 h-48 md:w-64 md:h-64 relative">
+            <Logo size="lg" withText={false} />
+            <div className="mt-6 text-2xl font-display gradient-text">DFC TOKEN</div>
+          </div>
+        </div>
         
         <div className="glass-card p-12 rounded-2xl cyber-border">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
-            <div className="text-center p-6 rounded-xl bg-white/5">
-              <div className="text-3xl font-display font-bold text-crypto-green mb-2">95%</div>
-              <div className="text-foreground/70 text-xl mb-2">Fair Launch</div>
-              <p className="text-sm mt-2 text-foreground/50">Ensuring everyone has a fair shot at getting in—no whale games here</p>
-            </div>
+            <Card className="text-center p-6 rounded-xl bg-white/5 border-crypto-green/30 border-2">
+              <CardContent className="p-6">
+                <div className="text-5xl font-display font-bold text-crypto-green mb-2">95%</div>
+                <div className="text-foreground/70 text-xl mb-2">Fair Launch</div>
+                <p className="text-sm mt-2 text-foreground/50">Ensuring everyone has a fair shot at getting in—no whale games here</p>
+              </CardContent>
+            </Card>
             
-            <div className="text-center p-6 rounded-xl bg-white/5">
-              <div className="text-3xl font-display font-bold text-crypto-purple mb-2">5%</div>
-              <div className="text-foreground/70 text-xl mb-2">Dev Fund (Locked)</div>
-              <p className="text-sm mt-2 text-foreground/50">Developer allocation locked for 12 months, ensuring long-term commitment to the project</p>
-            </div>
+            <Card className="text-center p-6 rounded-xl bg-white/5 border-crypto-purple/30 border-2">
+              <CardContent className="p-6">
+                <div className="text-5xl font-display font-bold text-crypto-purple mb-2">5%</div>
+                <div className="text-foreground/70 text-xl mb-2">Dev Fund (Locked)</div>
+                <p className="text-sm mt-2 text-foreground/50">Developer allocation locked for 12 months, ensuring long-term commitment to the project</p>
+              </CardContent>
+            </Card>
           </div>
           
           <div className="space-y-8 mt-12">
