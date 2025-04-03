@@ -25,11 +25,11 @@ const TokenomicsPage: React.FC = () => {
         </p>
 
         {/* Large token logo */}
-        <div className="mb-12 flex justify-center">
-          <div className="w-48 h-48 md:w-64 md:h-64 relative">
+        <div className="mb-12 flex justify-center items-center">
+          <div className="w-64 h-64 md:w-80 md:h-80 relative">
             <Logo size="lg" withText={false} />
-            <div className="mt-6 text-2xl font-display gradient-text">DFC TOKEN</div>
           </div>
+          <div className="text-3xl md:text-4xl font-display font-bold gradient-text">$DFC TOKEN</div>
         </div>
         
         <div className="glass-card p-12 rounded-2xl cyber-border">
@@ -57,11 +57,11 @@ const TokenomicsPage: React.FC = () => {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 <div className="p-4 border border-white/10 rounded-lg">
                   <div className="text-sm text-foreground/60">Token Name</div>
-                  <div className="font-semibold">Defection (DFC)</div>
+                  <div className="font-semibold">Defection ($DFC)</div>
                 </div>
                 <div className="p-4 border border-white/10 rounded-lg">
                   <div className="text-sm text-foreground/60">Total Supply</div>
-                  <div className="font-semibold">1,000,000,000 DFC</div>
+                  <div className="font-semibold">1,000,000,000 $DFC</div>
                 </div>
                 <div className="p-4 border border-white/10 rounded-lg">
                   <div className="text-sm text-foreground/60">Initial Price</div>

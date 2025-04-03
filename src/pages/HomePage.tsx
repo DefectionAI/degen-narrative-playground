@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { ArrowRight, TrendingUp, Zap, Users, Award } from 'lucide-react';
@@ -157,23 +156,17 @@ const HomePage: React.FC = () => {
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-8">
               <div className="text-center p-4 rounded-xl bg-white/5">
-                <div className="text-2xl font-display font-bold text-crypto-purple mb-2">10%</div>
-                <div className="text-foreground/70">Airdrop</div>
-                <p className="text-sm mt-2 text-foreground/50">Rewarding our early adopters and active community members</p>
-              </div>
-              
-              <div className="text-center p-4 rounded-xl bg-white/5">
-                <div className="text-2xl font-display font-bold text-crypto-blue mb-2">10%</div>
-                <div className="text-foreground/70">Dev Fund</div>
-                <p className="text-sm mt-2 text-foreground/50">Fueling continuous innovation and keeping the project SAFU</p>
-              </div>
-              
-              <div className="text-center p-4 rounded-xl bg-white/5">
-                <div className="text-2xl font-display font-bold text-crypto-green mb-2">80%</div>
+                <div className="text-2xl font-display font-bold text-crypto-green mb-2">95%</div>
                 <div className="text-foreground/70">Fair Launch</div>
                 <p className="text-sm mt-2 text-foreground/50">Ensuring everyone has a fair shot at getting in—no whale games here</p>
+              </div>
+              
+              <div className="text-center p-4 rounded-xl bg-white/5">
+                <div className="text-2xl font-display font-bold text-crypto-purple mb-2">5%</div>
+                <div className="text-foreground/70">Dev Fund (Locked)</div>
+                <p className="text-sm mt-2 text-foreground/50">Developer allocation locked for 12 months, ensuring long-term commitment</p>
               </div>
             </div>
             
