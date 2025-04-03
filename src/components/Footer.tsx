@@ -43,8 +43,8 @@ const Footer: React.FC = () => {
             <h3 className="font-display text-lg font-bold mb-4 neon-purple">Resources</h3>
             <ul className="space-y-2">
               <li><Link to="/roadmap" className="text-foreground/70 hover:text-crypto-purple transition-colors">Roadmap</Link></li>
-              <li><a href="#" className="text-foreground/70 hover:text-crypto-purple transition-colors flex items-center">Whitepaper <ExternalLink size={14} className="ml-1" /></a></li>
-              <li><a href="#" className="text-foreground/70 hover:text-crypto-purple transition-colors flex items-center">Documentation <ExternalLink size={14} className="ml-1" /></a></li>
+              <li><Link to="/whitepaper" className="text-foreground/70 hover:text-crypto-purple transition-colors flex items-center">Whitepaper <ExternalLink size={14} className="ml-1" /></Link></li>
+              <li><Link to="/documentation" className="text-foreground/70 hover:text-crypto-purple transition-colors flex items-center">Documentation <ExternalLink size={14} className="ml-1" /></Link></li>
               <li><Link to="/faq" className="text-foreground/70 hover:text-crypto-purple transition-colors">FAQ</Link></li>
             </ul>
           </div>

@@ -1,5 +1,5 @@
 
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
 import { Button } from '@/components/ui/button';
@@ -7,6 +7,7 @@ import {
   Home, Sparkles, Users, BarChart2, Newspaper, 
   CircleDollarSign, Menu, X, Github, Twitter
 } from 'lucide-react';
+import Logo from './Logo';
 
 const navItems = [
   { name: 'Home', path: '/', icon: <Home className="h-5 w-5" /> },
@@ -21,18 +22,30 @@ const Navigation: React.FC = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const location = useLocation();
   
+  // Close mobile menu when route changes
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+  
+  // Prevent body scroll when mobile menu is open
+  useEffect(() => {
+    if (mobileMenuOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [mobileMenuOpen]);
+  
   const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 border-b border-white/10 backdrop-blur-md bg-background/80">
       <div className="container mx-auto px-4 py-4 flex justify-between items-center">
-        <Link to="/" className="flex items-center space-x-2">
-          <div className="relative h-8 w-8">
-            <div className="absolute inset-0 bg-gradient-to-r from-crypto-purple to-crypto-blue rounded-full animate-pulse"></div>
-            <div className="absolute inset-0 bg-background rounded-full m-0.5 flex items-center justify-center text-lg font-display font-bold">D</div>
-          </div>
-          <span className="text-xl font-display font-bold gradient-text">Defection</span>
-        </Link>
+        <Logo size="sm" withText={true} />
         
         {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-6">
@@ -89,7 +102,7 @@ const Navigation: React.FC = () => {
       
       {/* Mobile menu */}
       {mobileMenuOpen && (
-        <div className="fixed inset-0 top-16 z-40 bg-background/95 backdrop-blur-sm md:hidden">
+        <div className="fixed inset-0 top-16 z-40 bg-background/95 backdrop-blur-md md:hidden overflow-y-auto">
           <nav className="container mx-auto px-4 py-8 flex flex-col space-y-4">
             {navItems.map((item) => (
               <Link 
@@ -107,6 +120,38 @@ const Navigation: React.FC = () => {
                 <span>{item.name}</span>
               </Link>
             ))}
+            
+            <div className="border-t border-white/10 pt-6 mt-4">
+              <h3 className="text-sm font-semibold text-foreground/60 mb-3 px-4">Resources</h3>
+              <Link 
+                to="/roadmap"
+                className="flex items-center space-x-3 px-4 py-3 rounded-md text-foreground/80 hover:bg-white/5"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span>Roadmap</span>
+              </Link>
+              <Link 
+                to="/whitepaper"
+                className="flex items-center space-x-3 px-4 py-3 rounded-md text-foreground/80 hover:bg-white/5"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span>Whitepaper</span>
+              </Link>
+              <Link 
+                to="/documentation"
+                className="flex items-center space-x-3 px-4 py-3 rounded-md text-foreground/80 hover:bg-white/5"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span>Documentation</span>
+              </Link>
+              <Link 
+                to="/faq"
+                className="flex items-center space-x-3 px-4 py-3 rounded-md text-foreground/80 hover:bg-white/5"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                <span>FAQ</span>
+              </Link>
+            </div>
             
             <div className="flex items-center space-x-4 mt-6 pt-6 border-t border-white/10">
               <a 
