@@ -2,6 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import { ExternalLink, RefreshCw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface NewsItem {
   id: string;
@@ -80,7 +81,7 @@ const CryptoNewsWidget: React.FC = () => {
                 className="h-full w-full object-cover"
                 onError={(e) => {
                   // Fallback image if the main one fails to load
-                  e.currentTarget.src = 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&q=80&w=500';
+                  e.currentTarget.src = 'https://placehold.co/200x150?text=News';
                 }}
               />
             </div>

@@ -25,11 +25,13 @@ const TokenomicsPage: React.FC = () => {
         </p>
 
         {/* Large token logo */}
-        <div className="mb-12 flex justify-center items-center gap-4">
-          <div className="w-64 h-64 md:w-80 md:h-80 relative">
-            <Logo size="lg" withText={false} />
+        <div className="mb-12 flex justify-center items-center">
+          <div className="flex items-center">
+            <div className="w-64 h-64 md:w-96 md:h-96 relative">
+              <Logo size="lg" withText={false} />
+            </div>
+            <div className="text-3xl md:text-5xl font-display font-bold gradient-text ml-2">$DFC TOKEN</div>
           </div>
-          <div className="text-3xl md:text-4xl font-display font-bold gradient-text">$DFC TOKEN</div>
         </div>
         
         <div className="glass-card p-12 rounded-2xl cyber-border">

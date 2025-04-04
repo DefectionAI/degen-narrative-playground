@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { cn } from '@/lib/utils';
@@ -8,6 +7,7 @@ import {
   CircleDollarSign, Menu, X, Github, Twitter
 } from 'lucide-react';
 import Logo from './Logo';
+import WalletConnect from './WalletConnect';
 
 const navItems = [
   { name: 'Home', path: '/', icon: <Home className="h-5 w-5" /> },
@@ -84,9 +84,7 @@ const Navigation: React.FC = () => {
             >
               <Github size={20} />
             </a>
-            <Button className="bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-opacity">
-              Connect Wallet
-            </Button>
+            <WalletConnect />
           </div>
           
           <Button 
@@ -165,9 +163,9 @@ const Navigation: React.FC = () => {
               </a>
             </div>
             
-            <Button className="mt-4 w-full bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-opacity">
-              Connect Wallet
-            </Button>
+            <div className="mt-4 px-4">
+              <WalletConnect />
+            </div>
           </nav>
         </div>
       )}

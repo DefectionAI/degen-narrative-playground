@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Newspaper, ExternalLink, Search, Filter, ArrowDown, RefreshCw } from 'lucide-react';
 import CryptoNewsWidget from '../components/CryptoNewsWidget';
+import { Skeleton } from '@/components/ui/skeleton';
 
 interface NewsSource {
   id: string;
@@ -34,19 +35,19 @@ const NewsPage: React.FC = () => {
       id: 'cointelegraph',
       name: 'CoinTelegraph',
       url: 'https://cointelegraph.com/',
-      logo: 'https://images.cointelegraph.com/cdn-cgi/image/format=auto,quality=90,width=120/https://s3.cointelegraph.com/storage/uploads/view/f76a8eba8f2c814cb7a7dc4a9ec05122.png'
+      logo: 'https://s3.cointelegraph.com/storage/uploads/view/f76a8eba8f2c814cb7a7dc4a9ec05122.png'
     },
     {
       id: 'cryptonews',
       name: 'CryptoNews',
       url: 'https://cryptonews.com/it/',
-      logo: 'https://cryptonews.com/img/cnrgb.svg'
+      logo: 'https://cryptonews.com/assets/img/cn_logo_default_H.png'
     },
     {
       id: 'theblock',
       name: 'The Block',
       url: 'https://www.theblock.co/',
-      logo: 'https://www.theblock.co/hubfs/TheBlockLogo-Wordmark.png'
+      logo: 'https://www.theblock.co/wp-content/uploads/2023/05/logo-2.5-transparent.svg'
     }
   ];
 
@@ -218,7 +219,14 @@ const NewsPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="glass-card p-4 rounded-lg flex items-center space-x-2 hover:bg-white/5 transition-colors"
               >
-                <img src={source.logo} alt={source.name} className="h-6 object-contain" />
+                <img 
+                  src={source.logo} 
+                  alt={source.name} 
+                  className="h-6 object-contain" 
+                  onError={(e) => {
+                    e.currentTarget.src = 'https://placehold.co/200x80?text=Logo';
+                  }}
+                />
                 <span className="text-sm">{source.name}</span>
                 <ExternalLink size={14} className="text-foreground/50" />
               </a>
