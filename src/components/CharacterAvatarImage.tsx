@@ -1,7 +1,7 @@
 
 import React, { useState } from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { UserRound, Star } from 'lucide-react';
+import { UserRound } from 'lucide-react';
 
 interface CharacterAvatarImageProps {
   src: string;
