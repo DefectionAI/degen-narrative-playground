@@ -14,11 +14,11 @@ const CharacterCard: React.FC<CharacterCardProps> = ({ character, onSelect }) =>
   return (
     <div className="glass-card rounded-xl overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 duration-300">
       <div className="h-40 overflow-hidden relative">
-        <img 
-          src={character.image} 
-          alt={character.name} 
-          className="w-full h-full object-cover object-center"
+        <div 
+          className="w-full h-full bg-gradient-to-br from-crypto-blue/30 to-crypto-purple/30"
+          style={{ backgroundImage: `url(${character.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
         />
+        
         {!character.unlocked && (
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">
             <Lock size={32} className="text-white" />

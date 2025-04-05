@@ -7,7 +7,7 @@ export const characters: Character[] = [
     role: 'Mysterious Founder',
     description: 'The enigmatic creator of Bitcoin. No one knows their true identity.',
     traits: ['Visionary', 'Secretive', 'Innovative'],
-    image: '/images/characters/satoshi.png', // We'll keep this as is since no image was provided
+    image: '/lovable-uploads/2dede92c-6dba-44f4-9e95-18823aa96d9f.png',
     popularity: 95,
     level: 10,
     unlocked: true,
