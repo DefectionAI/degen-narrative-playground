@@ -16,18 +16,16 @@ const CharacterAvatarImage: React.FC<CharacterAvatarImageProps> = ({
   size = 'md',
   className = '' 
 }) => {
-  // Generate a consistent but random color based on the character name
-  const stringToColor = (str: string) => {
-    let hash = 0;
-    for (let i = 0; i < str.length; i++) {
-      hash = str.charCodeAt(i) + ((hash << 5) - hash);
-    }
-    let color = '#';
-    for (let i = 0; i < 3; i++) {
-      const value = (hash >> (i * 8)) & 0xFF;
-      color += ('00' + value.toString(16)).slice(-2);
-    }
-    return color;
+  // Generate a consistent but random gradient colors based on the character name
+  const generateGradient = (name: string) => {
+    const hash = name.split('').reduce((acc, char) => {
+      return char.charCodeAt(0) + ((acc << 5) - acc);
+    }, 0);
+    
+    const h1 = Math.abs(hash % 360);
+    const h2 = (h1 + 40 + Math.abs((hash >> 8) % 60)) % 360;
+    
+    return `linear-gradient(135deg, hsl(${h1}, 80%, 60%), hsl(${h2}, 80%, 50%))`;
   };
   
   const getInitials = (name: string) => {
@@ -46,10 +44,16 @@ const CharacterAvatarImage: React.FC<CharacterAvatarImageProps> = ({
     xl: "h-32 w-32"
   };
   
-  const backgroundColor = stringToColor(name);
+  // Generate a unique gradient for this character
+  const backgroundGradient = generateGradient(name);
   
   return (
-    <Avatar className={`${sizeClasses[size]} rounded-full ring-2 ring-offset-2 ring-offset-background ring-white/10 ${className}`}>
+    <Avatar 
+      className={`${sizeClasses[size]} rounded-full border-2 border-white/20 ${className}`}
+      style={{ 
+        boxShadow: '0 0 15px rgba(155, 135, 245, 0.5)' 
+      }}
+    >
       <AvatarImage 
         src={src} 
         alt={name}
@@ -57,7 +61,8 @@ const CharacterAvatarImage: React.FC<CharacterAvatarImageProps> = ({
       />
       <AvatarFallback 
         delayMs={600}
-        className="bg-gradient-to-br from-crypto-purple to-crypto-blue text-white font-bold"
+        style={{ background: backgroundGradient }}
+        className="text-white font-bold"
       >
         {getInitials(name)}
       </AvatarFallback>

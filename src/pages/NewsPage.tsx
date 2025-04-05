@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Button } from '@/components/ui/button';
 import { Newspaper, ExternalLink, Search, Filter, ArrowDown, RefreshCw } from 'lucide-react';
@@ -9,14 +8,12 @@ interface NewsSource {
   id: string;
   name: string;
   url: string;
-  logo: string;
 }
 
 interface NewsItem {
   id: string;
   title: string;
   source: string;
-  sourceLogo: string;
   summary: string;
   url: string;
   imageUrl: string;
@@ -34,20 +31,17 @@ const NewsPage: React.FC = () => {
     {
       id: 'cointelegraph',
       name: 'CoinTelegraph',
-      url: 'https://cointelegraph.com/',
-      logo: 'https://s3.cointelegraph.com/storage/uploads/view/f76a8eba8f2c814cb7a7dc4a9ec05122.png'
+      url: 'https://cointelegraph.com/'
     },
     {
       id: 'cryptonews',
       name: 'CryptoNews',
-      url: 'https://cryptonews.com/it/',
-      logo: 'https://cryptonews.com/assets/img/cn_logo_default_H.png'
+      url: 'https://cryptonews.com/it/'
     },
     {
       id: 'theblock',
       name: 'The Block',
-      url: 'https://www.theblock.co/',
-      logo: 'https://www.theblock.co/wp-content/uploads/2023/05/logo-2.5-transparent.svg'
+      url: 'https://www.theblock.co/'
     }
   ];
 
@@ -56,7 +50,6 @@ const NewsPage: React.FC = () => {
       id: '1',
       title: 'Bitcoin ETF Inflows Reach $500M After Week of Outflows',
       source: 'CoinTelegraph',
-      sourceLogo: sources[0].logo,
       summary: 'After a week of continuous outflows, Bitcoin ETFs have seen significant buying pressure with over $500 million in net inflows on Wednesday...',
       url: 'https://cointelegraph.com/',
       imageUrl: 'https://images.unsplash.com/photo-1518546305927-5a555bb7020d?auto=format&fit=crop&w=500&h=280&q=80',
@@ -67,7 +60,6 @@ const NewsPage: React.FC = () => {
       id: '2',
       title: 'Ethereum Upgrade "Pectra" Scheduled for Q1 2025',
       source: 'The Block',
-      sourceLogo: sources[2].logo,
       summary: 'Ethereum developers have agreed on a timeline for the next major network upgrade, codenamed "Pectra," which will include EIP-4844 improvements...',
       url: 'https://www.theblock.co/',
       imageUrl: 'https://images.unsplash.com/photo-1622790698141-94e30457a379?auto=format&fit=crop&w=500&h=280&q=80',
@@ -78,7 +70,6 @@ const NewsPage: React.FC = () => {
       id: '3',
       title: 'SEC Commissioner Hints at Potential Ethereum ETF Approval',
       source: 'CryptoNews',
-      sourceLogo: sources[1].logo,
       summary: 'A commissioner at the SEC has suggested that Ethereum ETFs could receive regulatory approval in the coming months, following the successful launch of Bitcoin ETFs...',
       url: 'https://cryptonews.com/it/',
       imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=500&h=280&q=80',
@@ -89,7 +80,6 @@ const NewsPage: React.FC = () => {
       id: '4',
       title: 'Major DeFi Protocol Announces Layer 2 Expansion',
       source: 'The Block',
-      sourceLogo: sources[2].logo,
       summary: 'One of the largest DeFi lending protocols has announced plans to deploy on multiple Ethereum Layer 2 networks to reduce transaction costs for users...',
       url: 'https://www.theblock.co/',
       imageUrl: 'https://images.unsplash.com/photo-1621504450181-5d356f61d307?auto=format&fit=crop&w=500&h=280&q=80',
@@ -100,7 +90,6 @@ const NewsPage: React.FC = () => {
       id: '5',
       title: 'Central Bank Digital Currencies Could Threaten Crypto, Report Warns',
       source: 'CoinTelegraph',
-      sourceLogo: sources[0].logo,
       summary: 'A new report from a major investment bank suggests that the widespread adoption of CBDCs could potentially undermine the value proposition of cryptocurrencies...',
       url: 'https://cointelegraph.com/',
       imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=500&h=280&q=80',
@@ -111,7 +100,6 @@ const NewsPage: React.FC = () => {
       id: '6',
       title: 'NFT Trading Volume Surges 230% Month-over-Month',
       source: 'CryptoNews',
-      sourceLogo: sources[1].logo,
       summary: 'After months of declining interest, NFT markets have seen a significant resurgence with trading volumes increasing by 230% in October compared to September...',
       url: 'https://cryptonews.com/it/',
       imageUrl: 'https://images.unsplash.com/photo-1645560859433-1bea339e16a6?auto=format&fit=crop&w=500&h=280&q=80',
@@ -219,14 +207,6 @@ const NewsPage: React.FC = () => {
                 rel="noopener noreferrer"
                 className="glass-card p-4 rounded-lg flex items-center space-x-2 hover:bg-white/5 transition-colors"
               >
-                <img 
-                  src={source.logo} 
-                  alt={source.name} 
-                  className="h-6 object-contain" 
-                  onError={(e) => {
-                    e.currentTarget.src = 'https://placehold.co/200x80?text=Logo';
-                  }}
-                />
                 <span className="text-sm">{source.name}</span>
                 <ExternalLink size={14} className="text-foreground/50" />
               </a>
@@ -259,12 +239,7 @@ const NewsPage: React.FC = () => {
                 
                 <h3 className="text-xl font-bold mb-3 line-clamp-2">{item.title}</h3>
                 
-                <div className="flex items-center mb-4">
-                  <img 
-                    src={item.sourceLogo} 
-                    alt={item.source} 
-                    className="h-5 mr-2 object-contain" 
-                  />
+                <div className="mb-4">
                   <span className="text-sm text-foreground/70">{item.source}</span>
                 </div>
                 
