@@ -1,7 +1,7 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { Avatar, AvatarImage, AvatarFallback } from '@/components/ui/avatar';
-import { User } from 'lucide-react';
+import { UserRound, Star } from 'lucide-react';
 
 interface CharacterAvatarImageProps {
   src: string;
@@ -16,6 +16,8 @@ const CharacterAvatarImage: React.FC<CharacterAvatarImageProps> = ({
   size = 'md',
   className = '' 
 }) => {
+  const [imageError, setImageError] = useState(false);
+  
   // Generate a consistent but random gradient colors based on the character name
   const generateGradient = (name: string) => {
     const hash = name.split('').reduce((acc, char) => {
@@ -27,14 +29,6 @@ const CharacterAvatarImage: React.FC<CharacterAvatarImageProps> = ({
     
     return `linear-gradient(135deg, hsl(${h1}, 80%, 60%), hsl(${h2}, 80%, 50%))`;
   };
-  
-  const getInitials = (name: string) => {
-    return name.split(' ')
-      .map(word => word[0])
-      .join('')
-      .toUpperCase()
-      .substring(0, 2);
-  };
 
   // Size classes
   const sizeClasses = {
@@ -42,6 +36,14 @@ const CharacterAvatarImage: React.FC<CharacterAvatarImageProps> = ({
     md: "h-16 w-16",
     lg: "h-24 w-24",
     xl: "h-32 w-32"
+  };
+
+  // Icon sizes based on avatar size
+  const iconSizes = {
+    sm: 20,
+    md: 32,
+    lg: 48,
+    xl: 64
   };
   
   // Generate a unique gradient for this character
@@ -54,17 +56,20 @@ const CharacterAvatarImage: React.FC<CharacterAvatarImageProps> = ({
         boxShadow: '0 0 15px rgba(155, 135, 245, 0.5)' 
       }}
     >
-      <AvatarImage 
-        src={src} 
-        alt={name}
-        className="object-cover"
-      />
+      {!imageError && (
+        <AvatarImage 
+          src={src} 
+          alt={name}
+          className="object-cover"
+          onError={() => setImageError(true)}
+        />
+      )}
       <AvatarFallback 
         delayMs={600}
         style={{ background: backgroundGradient }}
-        className="text-white font-bold"
+        className="text-white flex items-center justify-center"
       >
-        {getInitials(name)}
+        <UserRound size={iconSizes[size]} className="text-white/90" />
       </AvatarFallback>
     </Avatar>
   );
