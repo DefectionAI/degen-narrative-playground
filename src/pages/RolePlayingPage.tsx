@@ -6,12 +6,15 @@ import CharacterCard from '../components/CharacterCard';
 import ScenarioCard from '../components/ScenarioCard';
 import { Character, Scenario } from '../types/character';
 import CharacterAvatarImage from '../components/CharacterAvatarImage';
+import AdventureMode from '../components/AdventureMode';
 
 type ActiveTab = 'characters' | 'scenarios';
 type SelectionState = {
   character: Character | null;
   scenario: Scenario | null;
 };
+
+type AppState = 'selection' | 'adventure';
 
 const RolePlayingPage: React.FC = () => {
   const [activeTab, setActiveTab] = useState<ActiveTab>('characters');
@@ -22,6 +25,7 @@ const RolePlayingPage: React.FC = () => {
     scenario: null
   });
   const [showConfirmation, setShowConfirmation] = useState(false);
+  const [appState, setAppState] = useState<AppState>('selection');
 
   const filteredCharacters = characters.filter(character => {
     const matchesSearch = character.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
@@ -54,10 +58,8 @@ const RolePlayingPage: React.FC = () => {
   };
 
   const handleStartScenario = () => {
-    // In a real app, this would navigate to the actual role-playing interface
-    // For now, we'll just reset the state and show a success message
     setShowConfirmation(false);
-    // Additional logic would go here
+    setAppState('adventure');
   };
 
   const clearSelections = () => {
@@ -65,6 +67,25 @@ const RolePlayingPage: React.FC = () => {
     setShowConfirmation(false);
   };
 
+  const exitAdventure = () => {
+    setAppState('selection');
+    clearSelections();
+  };
+
+  // Render Adventure Mode when in adventure state
+  if (appState === 'adventure' && selection.character && selection.scenario) {
+    return (
+      <div className="h-screen pt-20 bg-cyber-dots">
+        <AdventureMode 
+          character={selection.character}
+          scenario={selection.scenario}
+          onExit={exitAdventure}
+        />
+      </div>
+    );
+  }
+
+  
   return (
     <div className="min-h-screen pt-32 px-4 bg-cyber-dots">
       <div className="container mx-auto">
