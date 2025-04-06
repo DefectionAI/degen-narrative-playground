@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Character } from '../types/character';
 import { Lock, Unlock, Star, Trophy } from 'lucide-react';
@@ -13,11 +12,11 @@ interface CharacterCardProps {
 const CharacterCard: React.FC<CharacterCardProps> = ({ character, onSelect }) => {
   return (
     <div className="glass-card rounded-xl overflow-hidden transition-all hover:shadow-xl hover:-translate-y-1 duration-300">
-      <div className="h-40 overflow-hidden relative">
-        <div 
-          className="w-full h-full bg-gradient-to-br from-crypto-blue/30 to-crypto-purple/30"
-          style={{ backgroundImage: `url(${character.image})`, backgroundSize: 'cover', backgroundPosition: 'center' }}
-        />
+      <div className="h-40 overflow-hidden relative bg-gradient-to-br from-crypto-blue/30 to-crypto-purple/30">
+        {character.image && (
+          <div className="absolute inset-0 w-full h-full bg-cover bg-center opacity-50" 
+               style={{ backgroundImage: `url(${character.image})` }} />
+        )}
         
         {!character.unlocked && (
           <div className="absolute inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center">

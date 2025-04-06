@@ -48,6 +48,9 @@ const CharacterAvatarImage: React.FC<CharacterAvatarImageProps> = ({
   
   // Generate a unique gradient for this character
   const backgroundGradient = generateGradient(name);
+
+  // Log the image src to help debug
+  console.log(`Rendering avatar for ${name} with src: ${src}`);
   
   return (
     <Avatar 
@@ -56,12 +59,15 @@ const CharacterAvatarImage: React.FC<CharacterAvatarImageProps> = ({
         boxShadow: '0 0 15px rgba(155, 135, 245, 0.5)' 
       }}
     >
-      {!imageError && (
+      {!imageError && src && (
         <AvatarImage 
           src={src} 
           alt={name}
           className="object-cover"
-          onError={() => setImageError(true)}
+          onError={(e) => {
+            console.error(`Error loading image for ${name}: ${src}`);
+            setImageError(true);
+          }}
         />
       )}
       <AvatarFallback 
