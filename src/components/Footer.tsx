@@ -3,8 +3,20 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Twitter, Github, MessageCircle, ExternalLink } from 'lucide-react';
 import Logo from './Logo';
+import { useToast } from "@/hooks/use-toast";
 
 const Footer: React.FC = () => {
+  const { toast } = useToast();
+  
+  const handleDiscordClick = (e: React.MouseEvent) => {
+    e.preventDefault();
+    toast({
+      title: "Discord Coming Soon!",
+      description: "Our community Discord server is launching soon. Stay tuned!",
+      duration: 3000,
+    });
+  };
+
   return (
     <footer className="border-t border-white/10 mt-20 py-16 px-4 bg-cyber-dots">
       <div className="container mx-auto">
@@ -15,13 +27,13 @@ const Footer: React.FC = () => {
               The ultimate degen playground where crypto meets interactive storytelling.
             </p>
             <div className="flex items-center space-x-4 mt-6">
-              <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 hover:text-crypto-blue transition-colors">
+              <a href="https://x.com/Defection_ai" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 hover:text-crypto-blue transition-colors">
                 <Twitter size={20} />
               </a>
-              <a href="https://github.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 hover:text-crypto-purple transition-colors">
+              <a href="https://github.com/DefectionAI" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 hover:text-crypto-purple transition-colors">
                 <Github size={20} />
               </a>
-              <a href="https://discord.com" target="_blank" rel="noopener noreferrer" className="p-2 rounded-full hover:bg-white/5 hover:text-crypto-pink transition-colors">
+              <a href="#" onClick={handleDiscordClick} className="p-2 rounded-full hover:bg-white/5 hover:text-crypto-pink transition-colors">
                 <MessageCircle size={20} />
               </a>
             </div>
