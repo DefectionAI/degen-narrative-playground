@@ -35,91 +35,117 @@ const HomePage: React.FC = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Immersive Hero Section inspired by Cosmos Studio */}
+      {/* Immersive Hero Section with 3D elements */}
       <section 
         ref={heroRef}
         className="h-screen relative overflow-hidden flex items-center justify-center"
         style={{ perspective: '1000px' }}
       >
-        {/* Dynamic Background */}
+        {/* Dynamic 3D Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute inset-0 bg-black opacity-80"></div>
           
-          {/* Animated Gradient Spheres */}
-          <div 
-            className="absolute w-[40vw] h-[40vw] rounded-full blur-3xl opacity-30 bg-crypto-purple animate-float"
-            style={{ 
-              left: `calc(50% + ${mousePosition.x * -30}px)`, 
-              top: `calc(30% + ${mousePosition.y * -30}px)`,
-              transform: `translateZ(${50 - scrollY * 0.1}px)`,
-              filter: 'blur(100px)'
-            }}
-          ></div>
-          
-          <div 
-            className="absolute w-[35vw] h-[35vw] rounded-full blur-3xl opacity-30 bg-crypto-blue animate-float"
-            style={{ 
-              left: `calc(30% + ${mousePosition.x * 40}px)`, 
-              top: `calc(60% + ${mousePosition.y * 40}px)`,
-              transform: `translateZ(${70 - scrollY * 0.15}px)`,
-              filter: 'blur(80px)',
-              animationDelay: '1s'
-            }}
-          ></div>
-          
-          <div 
-            className="absolute w-[25vw] h-[25vw] rounded-full blur-3xl opacity-20 bg-crypto-pink animate-float"
-            style={{ 
-              right: `calc(30% + ${mousePosition.x * 20}px)`, 
-              bottom: `calc(30% + ${mousePosition.y * 20}px)`,
-              transform: `translateZ(${30 - scrollY * 0.05}px)`,
-              filter: 'blur(70px)',
-              animationDelay: '2s'
-            }}
-          ></div>
-          
-          {/* Grid Lines */}
-          <div className="absolute inset-0 bg-cyber-grid opacity-10"></div>
-          
-          {/* Particles Effect */}
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.1)_0,rgba(0,0,0,0)_70%)]"></div>
+          {/* 3D Animated Elements */}
+          <div className="absolute inset-0">
+            {/* Geometric Shapes */}
+            <div 
+              className="absolute w-[60vw] h-[60vh] rounded-full blur-3xl opacity-20 bg-crypto-purple"
+              style={{ 
+                left: `calc(50% + ${mousePosition.x * -50}px)`, 
+                top: `calc(30% + ${mousePosition.y * -50}px)`,
+                transform: `translateZ(${100 - scrollY * 0.15}px) rotateX(${mousePosition.y * 15}deg) rotateY(${mousePosition.x * -15}deg)`,
+                filter: 'blur(80px)'
+              }}
+            ></div>
+            
+            <div 
+              className="absolute w-[70vw] h-[70vh] rounded-full blur-3xl opacity-20 bg-crypto-blue"
+              style={{ 
+                left: `calc(30% + ${mousePosition.x * 60}px)`, 
+                top: `calc(60% + ${mousePosition.y * 60}px)`,
+                transform: `translateZ(${120 - scrollY * 0.2}px) rotateX(${mousePosition.y * 20}deg) rotateY(${mousePosition.x * -20}deg)`,
+                filter: 'blur(100px)'
+              }}
+            ></div>
+            
+            <div 
+              className="absolute w-[50vw] h-[50vh] rounded-full blur-3xl opacity-15 bg-crypto-pink"
+              style={{ 
+                right: `calc(30% + ${mousePosition.x * 40}px)`, 
+                bottom: `calc(30% + ${mousePosition.y * 40}px)`,
+                transform: `translateZ(${80 - scrollY * 0.1}px) rotateX(${mousePosition.y * 10}deg) rotateY(${mousePosition.x * -10}deg)`,
+                filter: 'blur(90px)'
+              }}
+            ></div>
+            
+            {/* Animated Grid Overlay */}
+            <div 
+              className="absolute inset-0 bg-cyber-grid opacity-10"
+              style={{ 
+                transform: `translateZ(30px) rotateX(${mousePosition.y * 2}deg) rotateY(${mousePosition.x * -2}deg)`,
+                backgroundSize: '40px 40px',
+                backgroundPosition: `calc(50% + ${mousePosition.x * 10}px) calc(50% + ${mousePosition.y * 10}px)`
+              }}
+            ></div>
+            
+            {/* Particles/Stars Effect */}
+            <div 
+              className="absolute inset-0"
+              style={{
+                background: `radial-gradient(circle at calc(50% + ${mousePosition.x * 30}px) calc(50% + ${mousePosition.y * 30}px), rgba(255,255,255,0.15) 0%, rgba(0,0,0,0) 70%)`,
+                mixBlendMode: 'screen'
+              }}
+            ></div>
+            
+            {/* Horizontal Light Beams */}
+            <div 
+              className="absolute inset-0 opacity-20"
+              style={{
+                background: `linear-gradient(90deg, 
+                  transparent 0%, 
+                  rgba(176, 38, 255, 0.4) 20%, 
+                  rgba(0, 255, 255, 0.4) 50%,
+                  rgba(255, 20, 147, 0.4) 80%, 
+                  transparent 100%)`,
+                transform: `translateY(${mousePosition.y * 50}px)`,
+                filter: 'blur(40px)'
+              }}
+            ></div>
+          </div>
         </div>
         
-        {/* Content with Parallax Effect */}
+        {/* Content with Enhanced Parallax Effect */}
         <div 
           className="relative z-10 container mx-auto px-4 text-center"
           style={{ 
             transform: `translateY(${scrollY * 0.2}px) 
-                        rotateX(${mousePosition.y * 5}deg) 
-                        rotateY(${mousePosition.x * -5}deg)`,
+                      rotateX(${mousePosition.y * 8}deg) 
+                      rotateY(${mousePosition.x * -8}deg)`,
             transformStyle: 'preserve-3d',
             transition: 'transform 0.1s ease-out'
           }}
         >
           <h1 
-            className="text-5xl md:text-7xl xl:text-8xl font-display font-bold mb-6 leading-tight"
-            style={{ transform: 'translateZ(50px)' }}
+            className="text-5xl md:text-7xl xl:text-9xl font-display font-bold mb-8 leading-tight"
+            style={{ transform: 'translateZ(60px)' }}
           >
-            <span className="inline-block animate-float" style={{ animationDelay: '0s' }}>
-              <span className="gradient-text">DEFECTION</span>
-            </span>
+            <span className="gradient-text shine">DEFECTION</span>
           </h1>
           
           <p 
-            className="text-xl md:text-3xl mb-8 text-foreground/90 max-w-3xl mx-auto animate-fade-in"
-            style={{ transform: 'translateZ(30px)' }}
+            className="text-xl md:text-3xl mb-10 text-foreground/90 max-w-3xl mx-auto animate-fade-in"
+            style={{ transform: 'translateZ(40px)' }}
           >
             The ultimate degen playground where the crypto universe meets an ever-evolving narrative shaped by real-world events.
           </p>
           
           <div 
             className="flex flex-col sm:flex-row justify-center gap-6 mb-12"
-            style={{ transform: 'translateZ(40px)' }}
+            style={{ transform: 'translateZ(50px)' }}
           >
             <Button 
               size="lg" 
-              className="bg-transparent hover:bg-crypto-purple/20 border border-crypto-purple text-crypto-purple hover:text-white px-8 py-6 text-lg rounded-full group transition-all duration-300 animate-float"
-              style={{ animationDelay: '0.5s' }}
+              className="bg-transparent hover:bg-crypto-purple/20 border border-crypto-purple text-crypto-purple hover:text-white px-8 py-6 text-lg rounded-full group transition-all duration-300"
             >
               <Link to="/scripts" className="flex items-center">
                 Get Started 
@@ -130,8 +156,7 @@ const HomePage: React.FC = () => {
             <Button 
               size="lg" 
               variant="outline" 
-              className="bg-transparent hover:bg-crypto-blue/20 border border-crypto-blue text-crypto-blue hover:text-white px-8 py-6 text-lg rounded-full group transition-all duration-300 animate-float"
-              style={{ animationDelay: '0.7s' }}
+              className="bg-transparent hover:bg-crypto-blue/20 border border-crypto-blue text-crypto-blue hover:text-white px-8 py-6 text-lg rounded-full group transition-all duration-300"
             >
               <Link to="/role-playing" className="flex items-center">
                 Learn More
@@ -139,20 +164,22 @@ const HomePage: React.FC = () => {
               </Link>
             </Button>
           </div>
-          
-          {/* Animated Scroll Indicator */}
-          <div 
-            className="absolute bottom-12 left-1/2 transform -translate-x-1/2 animate-bounce"
-            style={{ transform: 'translateZ(20px)' }}
-          >
-            <div className="w-6 h-10 rounded-full border-2 border-white/30 flex items-start justify-center p-1">
-              <div className="w-1.5 h-3 bg-white/60 rounded-full animate-[pulse_1.5s_infinite]"></div>
-            </div>
-          </div>
         </div>
         
-        {/* Glowing lines connecting sections */}
-        <div className="absolute inset-x-0 bottom-0 h-px bg-gradient-to-r from-transparent via-crypto-purple/50 to-transparent"></div>
+        {/* Enhanced Glowing Borders */}
+        <div 
+          className="absolute inset-x-0 bottom-0 h-[2px]"
+          style={{ 
+            background: `linear-gradient(90deg, 
+              transparent 0%, 
+              rgba(176, 38, 255, 0.7) 20%, 
+              rgba(0, 255, 255, 0.7) 50%, 
+              rgba(255, 20, 147, 0.7) 80%, 
+              transparent 100%)`,
+            boxShadow: '0 0 20px rgba(176, 38, 255, 0.5), 0 0 40px rgba(0, 255, 255, 0.3), 0 0 60px rgba(255, 20, 147, 0.2)',
+            transform: `translateX(${mousePosition.x * -30}px)`
+          }}
+        ></div>
       </section>
       
       {/* Features Section with updated styling */}
